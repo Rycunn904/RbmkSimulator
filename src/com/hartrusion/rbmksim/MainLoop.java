@@ -84,18 +84,32 @@ public class MainLoop implements Runnable, ModelManipulation {
             = new JvmStatisticsOutput(outputValues);
 
     public void init() {
+        ModelListener safeController = (ModelListener) java.lang.reflect.Proxy.newProxyInstance(
+            ModelListener.class.getClassLoader(),
+            new Class<?>[] { ModelListener.class },
+            (proxy, method, args) -> {
+                if ("propertyChange".equals(method.getName()) && args != null && args.length == 1
+                        && args[0] instanceof java.beans.PropertyChangeEvent evt) {
+                    if (evt.getPropertyName() == null || evt.getNewValue() == null) {
+                        return null; // Safely ignore null property updates after loading .ic saves
+                    }
+                }
+                return method.invoke(controller, args);
+            }
+        );
+
         core.registerTurbine(turbine);
         core.registerThermalLayout(process);
         core.registerAlarmManager(alarms);
         core.init();
         core.registerParameterOutput(outputValues);
-        core.registerController(controller);
+        core.registerController(safeController);
 
         process.registerReactor(core);
         process.registerTurbine(turbine);
 
         process.registerParameterOutput(outputValues);
-        process.registerController(controller);
+        process.registerController(safeController);
         process.registerAlarmManager(alarms);
         process.init();
 
@@ -103,7 +117,7 @@ public class MainLoop implements Runnable, ModelManipulation {
         turbine.registerAlarmManager(alarms);
         turbine.init();
         turbine.registerParameterOutput(outputValues);
-        turbine.registerController(controller);
+        turbine.registerController(safeController);
 
         // The structure of the solvers is final after the initialization of
         // the subsystems, so it is written to the output values only once.
