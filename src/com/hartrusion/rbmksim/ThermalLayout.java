@@ -2199,9 +2199,9 @@ public class ThermalLayout extends Subsystem implements Runnable {
 
             }
             loopMcpMass[idx].setBridgedConnection();
-            loopMcpMass[idx].setInnerThermalMass(100);
+            loopMcpMass[idx].setMass(100);
             loopDownflow[idx].setResistanceParameter(12.6);
-            loopDownflow[idx].setInnerThermalMass(150);
+            loopDownflow[idx].setMass(150);
             // Manipulate the specific heat capacity here to make the heatup 
             // from the MCP circulation much more intense. Default is 4200, the
             // heat increase is delta_p / (density * specHeatCap)
@@ -2253,9 +2253,9 @@ public class ThermalLayout extends Subsystem implements Runnable {
         for (int idx = 0; idx < 2; idx++) {
             // Two large pipes from and to reactor
             blowdownPipeFromMcp[idx].setResistanceParameter(2000);
-            blowdownPipeFromMcp[idx].setInnerThermalMass(400);
+            blowdownPipeFromMcp[idx].setMass(400);
             blowdownReturn[idx].setResistanceParameter(2400);
-            blowdownReturn[idx].setInnerThermalMass(400);
+            blowdownReturn[idx].setMass(400);
             // Valves connected to those
             blowdownValveFromLoop[idx].initCharacteristicSimple(400);
             blowdownReturnValve[idx].initCharacteristicSimple(400);
@@ -2272,7 +2272,7 @@ public class ThermalLayout extends Subsystem implements Runnable {
         // for cooldown with bypass with a high flow rate or we need to push it
         // through here to treat it, having a low flow.        
         blowdownTreatment.setResistanceParameter(12000);
-        blowdownTreatment.setInnerThermalMass(600);
+        blowdownTreatment.setMass(600);
         blowdownValveRegeneratedToDrums.initCharacteristicSimple(100);
         blowdownValveDrain.initCharacteristicSimple(400);
         blowdownRegenerator.initCharacteristic(0.8); // default: 0.9
@@ -2467,9 +2467,9 @@ public class ThermalLayout extends Subsystem implements Runnable {
         preheaterPiping[2].setResistanceParameter(133);
 
         // Mass modeled after heat exchanger for delay
-        preheaterPiping[0].setInnerThermalMass(600);
-        preheaterPiping[1].setInnerThermalMass(600);
-        preheaterPiping[2].setInnerThermalMass(600);
+        preheaterPiping[0].setMass(600);
+        preheaterPiping[1].setMass(600);
+        preheaterPiping[2].setMass(600);
 
         // The makup storage pump makes 200 kg/s at 4.0 bars
         // Todo: This was advanced characteristics here
@@ -2493,7 +2493,7 @@ public class ThermalLayout extends Subsystem implements Runnable {
             // vacuum itself is affected by incoming flows from turbine.
 
             // Add some mass to delay the temperature.
-            ejectorMainFlowReistance[idx].setInnerThermalMass(300);
+            ejectorMainFlowReistance[idx].setMass(300);
 
             // See turbine tap calculation on why this value is 1000.
             ejectorMainSteamValve[idx].initCharacteristicSimple(1000);
@@ -2577,20 +2577,16 @@ public class ThermalLayout extends Subsystem implements Runnable {
         // The steam mass inside the turbine is modeled constant, those are some
         // numbers that are totally non realistic but they have to be high for
         // the solution to be stable.
-        turbineHighPressureInMass.getPhasedHandler()
-                .setInnerHeatedMass(100);
-        turbineHighPressureOutMass.getPhasedHandler()
-                .setInnerHeatedMass(100);
-        turbineLowPressureInMass.getPhasedHandler()
-                .setInnerHeatedMass(60);
-        turbineLowPressureOutMass.getPhasedHandler()
-                .setInnerHeatedMass(50);
+        turbineHighPressureInMass.setMass(100);
+        turbineHighPressureOutMass.setMass(100);
+        turbineLowPressureInMass.setMass(60);
+        turbineLowPressureOutMass.setMass(50);
 
         // A constant mass element is used to have some delay from the steam
         // superheater, otherwise it will transfer its heat immediately. This
         // is not accurate but the only way to have the controls not end up in 
         // a disaster.
-        turbineRehasterMass.setInnerHeatedMass(100);
+        turbineRehasterMass.setMass(100);
         turbineRehasterMass.setBridgedConnection();
 
         turbineLowPressureTripValve.initCharacteristicSimple(1.0);
@@ -2779,7 +2775,7 @@ public class ThermalLayout extends Subsystem implements Runnable {
         // <editor-fold defaultstate="collapsed" desc="Set Initial conditions">
         // Makeup storage has 2 meters fill level initially, quite low:
         // ... but use 6.5 as long as there's no fill thing implemented:
-        makeupStorage.setInitialEffort(7.1 * 997 * 9.81); // p = h * rho * g
+        makeupStorage.setInitialMass(7.1 * 997 * 100); // m = h * rho * A
 
         // Coolant is supplied only by the one auxiliary pump.
         coolantAuxPump.setInitialCondition(true, true);
@@ -2811,7 +2807,8 @@ public class ThermalLayout extends Subsystem implements Runnable {
             // first value is the mass, it is the base area time 1000
             // 21000 is a good value for easy start. reduce this for more things
             // to do on startup.
-            loopSteamDrum[idx].setInitialState(14000, 36.8 + 273.15);
+            loopSteamDrum[idx].setInitialMass(14000);
+            loopSteamDrum[idx].setInitialTemperature(36.8 + 273.15);
             loopMcpMass[idx].getHeatHandler()
                     .setInitialTemperature(273.15 + 22.0);
             loopBypass[idx].initOpening(100); // Open Bypass
@@ -2829,9 +2826,10 @@ public class ThermalLayout extends Subsystem implements Runnable {
         // Deaerator
         for (int idx = 0; idx <= 1; idx++) {
             // try to have a fill level of 100 cm (normal level)
-            // deaerator[idx].setInitialState(40000, 35 + 273.15);
+            // deaerator[idx].setInitialMass(40000);
             // have less water in here to have the operator start with filling.
-            deaerator[idx].setInitialState(10000, 35 + 273.15);
+            deaerator[idx].setInitialMass(10000);
+            deaerator[idx].setInitialTemperature(35 + 273.15);
         }
         // Todo: Something that makes more sense here.
         for (int idx = 0; idx < 2; idx++) {
@@ -2859,12 +2857,15 @@ public class ThermalLayout extends Subsystem implements Runnable {
         // Initial fill of the bubbler pool. It is 400 m^2 in size, so with a 
         // fill height of 30 cm that will be 400 m^2 * 0.3 m = 120 m^3 which 
         // is 120 tons of water.
-        bubblerPool.setInitialState(300000, 273.15 + 19.0);
+        bubblerPool.setInitialMass(300000);
+        bubblerPool.setInitialTemperature(273.15 + 19.0);
 
-        // The ECCS vessel is using pressure as state variable, it should be
-        // initialized with slightly more than the empty precharge value.
+        // The ECCS vessel is initialized with slightly more than the empty
+        // precharge value. The mass is the one that compresses the 25 bar
+        // precharged gas to 35 bar: m = rho * V * (1 - (p0 / p)^(1 / n)).
         for (int idx = 0; idx < 2; idx++) {
-            eccsPressureVessel[idx].setInitialEffort(35e5);
+            eccsPressureVessel[idx].setInitialMass(
+                    1000 * 25.0 * (1.0 - Math.pow(25e5 / 35e5, 1.0 / 1.4)));
         }
 
         // </editor-fold>
