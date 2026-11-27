@@ -249,7 +249,7 @@ public class EvaporatorElement extends FuelElement {
         // designed in a way we get a decent flow out on channel rupture on 
         // idle as well as in full load conditions.
         flowResistance.setResistanceParameter(45102.8 / sizeFactor);
-        channelMass.setInnerThermalMass(100 * sizeFactor);
+        channelMass.setMass(100 * sizeFactor);
         channelMass.setResistanceParameter(10000 / sizeFactor);
         // Manipulate the specific heat capacity here to make the heatup 
         // from the MCP circulation much more intense. Default is 4200, the
@@ -386,10 +386,16 @@ public class EvaporatorElement extends FuelElement {
                     = (Water.INSTANCE.getSaturationTemperature(evapToDrumNode.getEffort())
                     - ((HeatNode) flowResistance.getNode(1)).getTemperature());
             double deltaH_subcooling = deltaT_subcooling * Water.INSTANCE.getSpecificHeatCapacity();
-
-            criticalPowerRatio = Math.min(-evapToDrumNode.getFlow(evaporator)
-                    * (deltaH_subcooling + 0.25 * Water.INSTANCE.getVaporizationHeatEnergy())
-                    / groupFissionPower, 9.990);
+            if (!evapToDrumNode.flowUpdated(evaporator)) {
+                // for an unknown reason, switching off all MCPs on full power
+                // can cause an exception here, another bug in the solver
+                // propably.
+                criticalPowerRatio = 0.0;
+            } else { // intended path:
+                criticalPowerRatio = Math.min(-evapToDrumNode.getFlow(evaporator)
+                        * (deltaH_subcooling + 0.25 * Water.INSTANCE.getVaporizationHeatEnergy())
+                        / groupFissionPower, 9.990);
+            }
         } else {
             criticalPowerRatio = 9.990;
         }
