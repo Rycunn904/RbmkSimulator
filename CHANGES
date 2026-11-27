@@ -1,0 +1,25 @@
+# Changelog & Modifications Notice
+
+In accordance with Section 5(a) of the GNU General Public License v3.0 (GPL-3.0), this document details the modifications made to the original **RbmkSimulator** project (`hartrusion/RbmkSimulator` v0.4.6) by Viktor Alexander Hartung.
+
+**Modified By:** CatBo  
+**Date of Modifications:** November 2026  
+**Original Upstream Project:** https://github.com/hartrusion/RbmkSimulator/releases/tag/v0.4.6  
+**License:** GNU General Public License v3.0 (see `LICENSE`)
+
+---
+
+## Summary of Changes
+
+### 1. Headless Dedicated Server Mode (`--headless`)
+* **Modified File:** `src/com/hartrusion/rbmksim/RbmkSimulator.java`
+* **Description:** Added support for the `--headless` command-line argument in `main(String[] args)`. When launched with `--headless`, the application skips Swing/AWT look-and-feel and window initialization and immediately starts the TCP `SocketServer` on port `26486` alongside the 100 ms cyclic simulation loop.
+
+### 2. UDP Multiplayer Player Position Relay
+* **Added File:** `src/com/hartrusion/rbmksim/UdpPlayerRelay.java`
+* **Modified Files:** `src/com/hartrusion/rbmksim/RbmkSimulator.java`, `src/com/hartrusion/rbmksim/MainLoop.java`
+* **Description:** Added a lightweight `DatagramSocket` relay thread listening on UDP port `26487` (started automatically in `--headless` mode and via the `StartServer` action). Tracks active player endpoints and broadcasts 3D player position/rotation packets between connected clients, pruning inactive clients after 5 seconds.
+
+### 3. Build & Packaging Automation
+* **Added File:** `build.ps1`
+* **Description:** Added a PowerShell build pipeline using `javac`, `jar`, and `jpackage` to compile the Java sources, bundle dependencies and embedded mnemonic display resources into `RbmkSimulator.jar`, generate a portable Windows runtime image (`RbmkServer.exe`), and collect all required GPL-3.0, MIT, and OpenJDK license notices into a `Legal/` directory.

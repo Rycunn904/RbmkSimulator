@@ -28,7 +28,7 @@ operating system or a Java runtime/JDK already installed, you can download the
 **RbmkSimulator.jar** file instead which is way smaller. Releases are built with 
 Java 17 so you need at least that version.
 
-Please not that save files are **NOT** compatible with newer versions.
+Please note that save files are **NOT** compatible with newer versions.
 
 ## Getting involved
 Please make yourself familiar with the rather unusual

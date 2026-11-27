@@ -25,7 +25,7 @@ import java.beans.PropertyChangeEvent;
  *
  * @author Viktor Alexander Hartung
  */
-public class PanelMnemonicDeaerator extends com.hartrusion.util.JPanelScaleable
+public class PanelMnemonicDeaerator extends javax.swing.JPanel
         implements UpdateReceiver {
 
     /**
@@ -89,7 +89,7 @@ public class PanelMnemonicDeaerator extends com.hartrusion.util.JPanelScaleable
         jLabelReadingSteamFlow2 = new javax.swing.JLabel();
         valveReheaterCondensate1 = new com.hartrusion.rbmksim.gui.mnemonic.Valve();
         valveReheaterCondensate2 = new com.hartrusion.rbmksim.gui.mnemonic.Valve();
-        mnemonicBackground = new com.hartrusion.rbmksim.gui.mnemonic.MnemonicDeaeratorBackground();
+        jLabelBackground = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(400, 291));
         setPreferredSize(new java.awt.Dimension(400, 291));
@@ -363,7 +363,8 @@ public class PanelMnemonicDeaerator extends com.hartrusion.util.JPanelScaleable
         valveReheaterCondensate2.setVertical(true);
         add(valveReheaterCondensate2, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 11, -1, -1));
 
-        add(mnemonicBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hartrusion/rbmksim/gui/mnemonic/MnemonicDeaerator.png"))); // NOI18N
+        add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -379,6 +380,7 @@ public class PanelMnemonicDeaerator extends com.hartrusion.util.JPanelScaleable
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabelBackground;
     private javax.swing.JLabel jLabelReadingCondFlow1;
     private javax.swing.JLabel jLabelReadingCondFlow2;
     private javax.swing.JLabel jLabelReadingCondIn1Valve;
@@ -400,7 +402,6 @@ public class PanelMnemonicDeaerator extends com.hartrusion.util.JPanelScaleable
     private javax.swing.JLabel jLabelReadingSteamIn1Valve;
     private javax.swing.JLabel jLabelReadingSteamIn2Valve;
     private javax.swing.JLabel jLabelReadingTurbineTapValve;
-    private com.hartrusion.rbmksim.gui.mnemonic.MnemonicDeaeratorBackground mnemonicBackground;
     private com.hartrusion.rbmksim.gui.mnemonic.Valve valveCondIn1;
     private com.hartrusion.rbmksim.gui.mnemonic.Valve valveCondIn2;
     private com.hartrusion.rbmksim.gui.mnemonic.Valve valveDrain1;

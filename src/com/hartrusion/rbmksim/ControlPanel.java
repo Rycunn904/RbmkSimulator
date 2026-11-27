@@ -41,7 +41,7 @@ import com.hartrusion.rbmksim.gui.widgets.*;
 import com.hartrusion.rbmksim.gui.mnemonic.*;
 import com.hartrusion.rbmksim.gui.panels.PanelEccs;
 import com.hartrusion.rbmksim.gui.panels.PanelPressureSetpoint;
-import com.hartrusion.swing.JDesktopPaneEnhanced;
+import com.hartrusion.util.JDesktopPaneEnhanced;
 import com.hartrusion.values.ValueHandler;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyVetoException;
@@ -85,24 +85,6 @@ public class ControlPanel extends javax.swing.JFrame implements
     }
 
     /**
-     * Forwards the output snapshot to the SimulationCoreInfo window if it is
-     * open, because the window evaluates the whole snapshot to find the
-     * solvers of the model instead of single values. Called from
-     * ControlPanelManager for each received output snapshot, because the
-     * manager receives the snapshot and only forwards the single values to the
-     * control panels.
-     * <p>
-     * LLM code generated with Claude Opus 5.5
-     *
-     * @param snapshot output snapshot of the model
-     */
-    public void updateSnapshot(com.hartrusion.values.ValueSnapshot snapshot) {
-        if (simulationCoreInfo != null) {
-            simulationCoreInfo.updateSnapshot(snapshot);
-        }
-    }
-
-    /**
      * Called each time from the controller via some whatever call stack, the
      * alarms are sent as a list of alarms. Can be either a reference or a new
      * list each time (when using network)
@@ -142,37 +124,10 @@ public class ControlPanel extends javax.swing.JFrame implements
     private FrameDebugFlow frameDebugFlow;
 
     /**
-     * Window with information about the simulation core, which is opened from
-     * the help menu and receives the double value updates of this control
-     * panel while it is open. The field is null while the window is closed.
-     */
-    private SimulationCoreInfo simulationCoreInfo;
-
-    /**
      * Creates new form ControlPanel
      */
     public ControlPanel() {
         initComponents();
-        selectActiveThemeMenuItem();
-    }
-
-    /**
-     * Marks the GUI theme that is installed while this control panel is
-     * created in the theme menu. Because a theme switch recreates all control
-     * panels, the selection only has to be set once on construction.
-     * <p>
-     * LLM code generated with Claude Opus 5.5
-     */
-    private void selectActiveThemeMenuItem() {
-        switch (GuiThemeManager.getActiveTheme()) {
-            case CHORNOBYL_METAL_DARK:
-                jRadioButtonMenuItemThemeChornobylMetalDark.setSelected(true);
-                break;
-            case CHORNOBYL_METAL:
-            default:
-                jRadioButtonMenuItemThemeChornobylMetal.setSelected(true);
-                break;
-        }
     }
 
     /**
@@ -186,9 +141,8 @@ public class ControlPanel extends javax.swing.JFrame implements
 
         jTextField1 = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
-        buttonGroupTheme = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jDesktopPane1 = new com.hartrusion.swing.JDesktopPaneEnhanced();
+        jDesktopPane1 = new com.hartrusion.util.JDesktopPaneEnhanced();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuFile = new javax.swing.JMenu();
         jMenuItemNewPanel = new javax.swing.JMenuItem();
@@ -209,10 +163,6 @@ public class ControlPanel extends javax.swing.JFrame implements
         jMenuItemViewCore2 = new javax.swing.JMenuItem();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
         jMenuItemViewECCS = new javax.swing.JMenuItem();
-        jSeparator12 = new javax.swing.JPopupMenu.Separator();
-        jMenuTheme = new javax.swing.JMenu();
-        jRadioButtonMenuItemThemeChornobylMetal = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItemThemeChornobylMetalDark = new javax.swing.JRadioButtonMenuItem();
         jMenuControls = new javax.swing.JMenu();
         jMenuItemCoreControl = new javax.swing.JMenuItem();
         jMenuItemRecirculation = new javax.swing.JMenuItem();
@@ -262,7 +212,6 @@ public class ControlPanel extends javax.swing.JFrame implements
         jMenuItemPresetLevelControl = new javax.swing.JMenuItem();
         jMenuItemPresetMPC = new javax.swing.JMenuItem();
         jMenuItemTurbineOperator = new javax.swing.JMenuItem();
-        jMenuItemPresetPressureControl = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItemPresetNone = new javax.swing.JMenuItem();
         jMenuHelp = new javax.swing.JMenu();
@@ -282,7 +231,6 @@ public class ControlPanel extends javax.swing.JFrame implements
         jMenuItemDebugFlow = new javax.swing.JMenuItem();
         jSeparator10 = new javax.swing.JPopupMenu.Separator();
         jMenuItemDebugReactivity = new javax.swing.JMenuItem();
-        jMenuItemShowCoreInfo = new javax.swing.JMenuItem();
 
         jTextField1.setText("jTextField1");
 
@@ -355,21 +303,6 @@ public class ControlPanel extends javax.swing.JFrame implements
         jMenuItemViewECCS.setText("Emergency Core Cooling System");
         jMenuItemViewECCS.addActionListener(this::jMenuItemViewECCSActionPerformed);
         jMenuView.add(jMenuItemViewECCS);
-        jMenuView.add(jSeparator12);
-
-        jMenuTheme.setText("Theme");
-
-        buttonGroupTheme.add(jRadioButtonMenuItemThemeChornobylMetal);
-        jRadioButtonMenuItemThemeChornobylMetal.setText("Light");
-        jRadioButtonMenuItemThemeChornobylMetal.addActionListener(this::jRadioButtonMenuItemThemeChornobylMetalActionPerformed);
-        jMenuTheme.add(jRadioButtonMenuItemThemeChornobylMetal);
-
-        buttonGroupTheme.add(jRadioButtonMenuItemThemeChornobylMetalDark);
-        jRadioButtonMenuItemThemeChornobylMetalDark.setText("Dark");
-        jRadioButtonMenuItemThemeChornobylMetalDark.addActionListener(this::jRadioButtonMenuItemThemeChornobylMetalDarkActionPerformed);
-        jMenuTheme.add(jRadioButtonMenuItemThemeChornobylMetalDark);
-
-        jMenuView.add(jMenuTheme);
 
         jMenuBar1.add(jMenuView);
 
@@ -564,10 +497,6 @@ public class ControlPanel extends javax.swing.JFrame implements
         jMenuItemTurbineOperator.setText("Turbine Operator");
         jMenuItemTurbineOperator.addActionListener(this::jMenuItemTurbineOperatorActionPerformed);
         jMenuPresets.add(jMenuItemTurbineOperator);
-
-        jMenuItemPresetPressureControl.setText("Pressure control");
-        jMenuItemPresetPressureControl.addActionListener(this::jMenuItemPresetPressureControlActionPerformed);
-        jMenuPresets.add(jMenuItemPresetPressureControl);
         jMenuPresets.add(jSeparator1);
 
         jMenuItemPresetNone.setText("Clear (close all)");
@@ -634,10 +563,6 @@ public class ControlPanel extends javax.swing.JFrame implements
         jMenuSecret.add(jMenuItemDebugReactivity);
 
         jMenuHelp.add(jMenuSecret);
-
-        jMenuItemShowCoreInfo.setText("Show Core Info");
-        jMenuItemShowCoreInfo.addActionListener(this::jMenuItemShowCoreInfoActionPerformed);
-        jMenuHelp.add(jMenuItemShowCoreInfo);
 
         jMenuBar1.add(jMenuHelp);
 
@@ -1609,16 +1534,8 @@ public class ControlPanel extends javax.swing.JFrame implements
         initializeControlPanel(new PanelEccs(), "Emergency Core Cooling System (ECCS)");
     }//GEN-LAST:event_jMenuItemViewECCSActionPerformed
 
-    private void jRadioButtonMenuItemThemeChornobylMetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItemThemeChornobylMetalActionPerformed
-        parentControlRoom.switchTheme(GuiThemeManager.CHORNOBYL_METAL);
-    }//GEN-LAST:event_jRadioButtonMenuItemThemeChornobylMetalActionPerformed
-
-    private void jRadioButtonMenuItemThemeChornobylMetalDarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItemThemeChornobylMetalDarkActionPerformed
-        parentControlRoom.switchTheme(GuiThemeManager.CHORNOBYL_METAL_DARK);
-    }//GEN-LAST:event_jRadioButtonMenuItemThemeChornobylMetalDarkActionPerformed
-
     private void jMenuItemStartServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemStartServerActionPerformed
-        parentControlRoom.startServer();
+        controller.userAction(new ActionCommand("StartServer", null));
     }//GEN-LAST:event_jMenuItemStartServerActionPerformed
 
     private void jMenuItemDebugTurbineLPTempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDebugTurbineLPTempActionPerformed
@@ -1709,21 +1626,6 @@ public class ControlPanel extends javax.swing.JFrame implements
         initializeDiagram(df);
     }//GEN-LAST:event_jMenuItemDebugReactivityActionPerformed
 
-    private void jMenuItemShowCoreInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemShowCoreInfoActionPerformed
-        if (simulationCoreInfo != null) {
-            simulationCoreInfo.toFront();
-            return;
-        }
-        simulationCoreInfo = new SimulationCoreInfo();
-        simulationCoreInfo.addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                simulationCoreInfo = null;
-            }
-        });
-        simulationCoreInfo.setVisible(true);
-    }//GEN-LAST:event_jMenuItemShowCoreInfoActionPerformed
-
     private void jMenuWordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuWordsActionPerformed
         AuthorDialog dialog = new AuthorDialog(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
@@ -1743,73 +1645,6 @@ public class ControlPanel extends javax.swing.JFrame implements
     private void jMenuItemRepairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRepairActionPerformed
         controller.userAction(new ActionCommand("RepairAllChannels", null));
     }//GEN-LAST:event_jMenuItemRepairActionPerformed
-
-    /**
-     * Opens and arranges the windows which are needed to control the drum
-     * pressure during startup. The drum pressure and the startup pressure
-     * setpoint diagrams are placed in the top left corner next to the panels
-     * of the pressure setpoint, the turbine bypass and the deaerators, while
-     * the feedwater, coolant and auxiliary condensation panels are placed
-     * below them. Both loop mnemonics fill the right side so that the drum
-     * states are visible next to the controls.
-     * <p>
-     * LLM code generated with Claude Opus 5.5
-     */
-    private void jMenuItemPresetPressureControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPresetPressureControlActionPerformed
-        jMenuItemPresetNoneActionPerformed(null); // close all
-
-        jMenuItem2ActionPerformed(null); // Drum Pressure diagram
-        jMenuItemStartupPressureSetpointActionPerformed(null);
-
-        jMenuItemPressureSetpointActionPerformed(null);
-        jMenuItemTurbineBypassActionPerformed(null);
-        jMenuItemDeaeratorsActionPerformed(null);
-        jMenuItemFeedwaterActionPerformed(null);
-        jMenuItemAuxCondActionPerformed(null);
-        jMenuItemCoolantActionPerformed(null);
-
-        jMenuItemMnemonicLoop1ActionPerformed(null);
-        jMenuItemMnemonicLoop2ActionPerformed(null);
-        jMenuItemMnemonicAuxCondenserActionPerformed(null);
-
-        // 1st row: diagrams, setpoint and deaerators, then both loops
-        JDesktopPaneEnhanced.windowPlaceAtZero(
-                getDiagramInstance("Drum Pressure"));
-        JDesktopPaneEnhanced.windowPlaceRightTo(
-                getDiagramInstance("Startup Pressure Setpoint"),
-                getDiagramInstance("Drum Pressure"));
-        JDesktopPaneEnhanced.windowPlaceRightTo(
-                getControlPanelInstance("Pressure Setpoint"),
-                getDiagramInstance("Startup Pressure Setpoint"));
-        JDesktopPaneEnhanced.windowPlaceBelow(
-                getControlPanelInstance("Turbine Bypass"),
-                getControlPanelInstance("Pressure Setpoint"));
-        JDesktopPaneEnhanced.windowPlaceRightTo(
-                getControlPanelInstance("Deaerators"),
-                getControlPanelInstance("Pressure Setpoint"));
-        JDesktopPaneEnhanced.windowPlaceRightTo(
-                getMnemonicInstance("Loop 1"),
-                getControlPanelInstance("Deaerators"));
-        JDesktopPaneEnhanced.windowPlaceRightTo(
-                getMnemonicInstance("Loop 2"),
-                getMnemonicInstance("Loop 1"));
-
-        // Left column below the drum pressure diagram:
-        JDesktopPaneEnhanced.windowPlaceBelow(
-                getControlPanelInstance("Feedwater"),
-                getDiagramInstance("Drum Pressure"));
-        JDesktopPaneEnhanced.windowPlaceBelow(
-                getControlPanelInstance("Coolant"),
-                getControlPanelInstance("Feedwater"));
-
-        // Auxiliary condensation panel and its mnemonic next to feedwater:
-        JDesktopPaneEnhanced.windowPlaceRightTo(
-                getControlPanelInstance("Aux. Condensation"),
-                getControlPanelInstance("Feedwater"));
-        JDesktopPaneEnhanced.windowPlaceBelow(
-                getMnemonicInstance("Aux Condenser"),
-                getControlPanelInstance("Aux. Condensation"));
-    }//GEN-LAST:event_jMenuItemPresetPressureControlActionPerformed
 
     /**
      * Makes some initializations to the mnemonic frame object and add it to the
@@ -1895,9 +1730,6 @@ public class ControlPanel extends javax.swing.JFrame implements
      * @param object JInternalFrame object
      */
     private void initializeDiagram(InternalFrameDiagram cpf) {
-        // The diagram is configured completely at this point, so that all of
-        // its axes exist and can get the colors of the GUI theme.
-        cpf.applyGuiTheme();
         cpf.setVisible(true);
         jDesktopPane1.add(cpf);
 
@@ -1949,8 +1781,7 @@ public class ControlPanel extends javax.swing.JFrame implements
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroupTheme;
-    private com.hartrusion.swing.JDesktopPaneEnhanced jDesktopPane1;
+    private com.hartrusion.util.JDesktopPaneEnhanced jDesktopPane1;
     private javax.swing.JMenuItem jMenuAbout;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuControls;
@@ -2001,12 +1832,10 @@ public class ControlPanel extends javax.swing.JFrame implements
     private javax.swing.JMenuItem jMenuItemPresetMPC;
     private javax.swing.JMenuItem jMenuItemPresetMnemonics;
     private javax.swing.JMenuItem jMenuItemPresetNone;
-    private javax.swing.JMenuItem jMenuItemPresetPressureControl;
     private javax.swing.JMenuItem jMenuItemPresetReactorOperator;
     private javax.swing.JMenuItem jMenuItemPressureSetpoint;
     private javax.swing.JMenuItem jMenuItemRecirculation;
     private javax.swing.JMenuItem jMenuItemRepair;
-    private javax.swing.JMenuItem jMenuItemShowCoreInfo;
     private javax.swing.JMenuItem jMenuItemStartServer;
     private javax.swing.JMenuItem jMenuItemStartupPressureSetpoint;
     private javax.swing.JMenuItem jMenuItemTriggerDisaster;
@@ -2029,16 +1858,12 @@ public class ControlPanel extends javax.swing.JFrame implements
     private javax.swing.JMenu jMenuPresets;
     private javax.swing.JMenuItem jMenuSave;
     private javax.swing.JMenu jMenuSecret;
-    private javax.swing.JMenu jMenuTheme;
     private javax.swing.JMenu jMenuView;
     private javax.swing.JMenuItem jMenuWords;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItemThemeChornobylMetal;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItemThemeChornobylMetalDark;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator10;
     private javax.swing.JPopupMenu.Separator jSeparator11;
-    private javax.swing.JPopupMenu.Separator jSeparator12;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JSeparator jSeparator4;

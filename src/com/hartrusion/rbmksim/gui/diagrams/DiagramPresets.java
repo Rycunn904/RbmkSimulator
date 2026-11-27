@@ -23,7 +23,6 @@ import com.hartrusion.plot.Line;
 import com.hartrusion.plot.MYAxes;
 import com.hartrusion.plot.SubPlot;
 import com.hartrusion.plot.YYAxes;
-import com.hartrusion.rbmksim.gui.GuiThemeManager;
 import com.hartrusion.values.ValueHandler;
 import java.awt.Color;
 
@@ -34,36 +33,10 @@ import java.awt.Color;
  * <p>
  * This allows the Figure to be implemented either in separate windows or in
  * embedded JInternalFrame objects.
- * <p>
- * Lines that shall be drawn in the foreground color of the diagram, which is
- * black on the white axes of the light GUI theme, get their color from
- * getForegroundLineColor(), so that they stay visible on the black axes of the
- * dark GUI theme.
  *
  * @author Viktor Alexander Hartung
  */
 public class DiagramPresets {
-
-    /**
-     * Returns the color for lines that are drawn in the foreground color of
-     * the diagram, such as setpoint lines. It is the axis ruler color of the
-     * jmplot theme that matches the active GUI theme, which is black for the
-     * light theme and the light gray of the rulers for the dark theme. The
-     * GUI theme can be read when the preset is configured, because all
-     * diagrams are created again when the GUI theme is switched.
-     * <p>
-     * LLM code generated with Claude Opus 5.5
-     *
-     * @return Color for foreground lines
-     */
-    private static Color getForegroundLineColor() {
-        boolean darkTheme = GuiThemeManager.getActiveTheme()
-                .getChornobylMetalTheme().isDarkTheme();
-        if (darkTheme) {
-            return Axes.THEME_DARK_AXIS_RULER_COLOR;
-        }
-        return Axes.THEME_LIGHT_AXIS_RULER_COLOR;
-    }
 
     public static void drums(FigureJPane figure, ValueHandler plotData) {
         figure.setYRulers(0);
@@ -151,7 +124,7 @@ public class DiagramPresets {
         l.setLabel("Active Setpoint");
         l.setDataSource(plotData.getTime60(1),
                 plotData.getParameterDoubleSeries("Reactor#SetpointNeutronFlux", 1));
-        l.setLineColor(getForegroundLineColor());
+        l.setLineColor(Color.BLACK);
         ax.addLine(1, l);
         le.addLine(l);
 
@@ -237,7 +210,7 @@ public class DiagramPresets {
         l.setLabel("Setpoint");
         l.setDataSource(plotData.getTime60(5),
                 plotData.getParameterDoubleSeries("Loop" + loop + "#DrumLevelSetpoint", 5));
-        l.setLineColor(getForegroundLineColor());
+        l.setLineColor(Color.BLACK);
         ax.addLine(1, l);
         l = new Line();
         le.addLine(l);
@@ -507,7 +480,7 @@ public class DiagramPresets {
         l.setLabel("Reheater Setpoint");
         l.setDataSource(plotData.getTime60(1),
                 plotData.getParameterDoubleSeries("Turbine#ReheaterTemperatureSetpoint", 1));
-        l.setLineColor(getForegroundLineColor());
+        l.setLineColor(Color.BLACK);
         l.setMarker('s');
         l.setMarkerInterval(150);
         ax.addLine(1, l);

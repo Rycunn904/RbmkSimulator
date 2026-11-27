@@ -30,7 +30,7 @@ import java.beans.PropertyChangeEvent;
  *
  * @author Viktor Alexander Hartung
  */
-public class PanelMnemonicCondensate extends com.hartrusion.util.JPanelScaleable
+public class PanelMnemonicCondensate extends javax.swing.JPanel
         implements UpdateReceiver {
 
     /**
@@ -90,7 +90,7 @@ public class PanelMnemonicCondensate extends com.hartrusion.util.JPanelScaleable
         jLabelEjector3 = new javax.swing.JLabel();
         jLabelEjector4 = new javax.swing.JLabel();
         jLabelReadingCondensateTempFromHotwell = new javax.swing.JLabel();
-        mnemonicBackground = new com.hartrusion.rbmksim.gui.mnemonic.MnemonicCondensateBackground();
+        jLabelBackground = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(652, 228));
         setMinimumSize(new java.awt.Dimension(652, 228));
@@ -273,11 +273,13 @@ public class PanelMnemonicCondensate extends com.hartrusion.util.JPanelScaleable
         jLabelReadingCondensateTempFromHotwell.setOpaque(true);
         add(jLabelReadingCondensateTempFromHotwell, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 20, 64, 16));
 
-        add(mnemonicBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hartrusion/rbmksim/gui/mnemonic/MnemonicCondensate.png"))); // NOI18N
+        add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelBackground;
     private javax.swing.JLabel jLabelEjector1;
     private javax.swing.JLabel jLabelEjector2;
     private javax.swing.JLabel jLabelEjector3;
@@ -293,7 +295,6 @@ public class PanelMnemonicCondensate extends com.hartrusion.util.JPanelScaleable
     private javax.swing.JLabel jLabelReadingSteamInFlow;
     private javax.swing.JLabel jLabelReadingSteamInPressure;
     private javax.swing.JLabel jLabelToDA;
-    private com.hartrusion.rbmksim.gui.mnemonic.MnemonicCondensateBackground mnemonicBackground;
     private com.hartrusion.rbmksim.gui.mnemonic.Pump pumpCondensate1;
     private com.hartrusion.rbmksim.gui.mnemonic.Pump pumpCondensate2;
     private com.hartrusion.rbmksim.gui.mnemonic.Pump pumpCondensate3;

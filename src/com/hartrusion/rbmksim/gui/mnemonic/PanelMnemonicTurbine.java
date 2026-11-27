@@ -26,7 +26,7 @@ import java.beans.PropertyChangeEvent;
  *
  * @author viktor
  */
-public class PanelMnemonicTurbine extends com.hartrusion.util.JPanelScaleable
+public class PanelMnemonicTurbine extends javax.swing.JPanel
         implements UpdateReceiver {
 
     /**
@@ -127,7 +127,7 @@ public class PanelMnemonicTurbine extends com.hartrusion.util.JPanelScaleable
         jLabelReadingTurbineSpeed = new javax.swing.JLabel();
         jLabelReadingReheaterOutTemp = new javax.swing.JLabel();
         jLabelReadingReheaterOutQuality = new javax.swing.JLabel();
-        mnemonicBackground = new com.hartrusion.rbmksim.gui.mnemonic.MnemonicTurbineBackground();
+        jLabelBackground = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(652, 432));
         setName(""); // NOI18N
@@ -621,7 +621,8 @@ public class PanelMnemonicTurbine extends com.hartrusion.util.JPanelScaleable
         jLabelReadingReheaterOutQuality.setOpaque(true);
         add(jLabelReadingReheaterOutQuality, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 60, 58, 16));
 
-        add(mnemonicBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hartrusion/rbmksim/gui/mnemonic/MnemonicTurbine.png"))); // NOI18N
+        add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -639,6 +640,7 @@ public class PanelMnemonicTurbine extends com.hartrusion.util.JPanelScaleable
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabelBackground;
     private javax.swing.JLabel jLabelReadingBypass1;
     private javax.swing.JLabel jLabelReadingBypass2;
     private javax.swing.JLabel jLabelReadingCondensatePumpsPressure;
@@ -679,7 +681,6 @@ public class PanelMnemonicTurbine extends com.hartrusion.util.JPanelScaleable
     private javax.swing.JLabel jLabelReadingValveReheaterReg;
     private javax.swing.JLabel jLabelReadingValveStartup1;
     private javax.swing.JLabel jLabelReadingValveStartup2;
-    private com.hartrusion.rbmksim.gui.mnemonic.MnemonicTurbineBackground mnemonicBackground;
     private com.hartrusion.rbmksim.gui.mnemonic.Pump pumpCondensate1;
     private com.hartrusion.rbmksim.gui.mnemonic.Pump pumpCondensate2;
     private com.hartrusion.rbmksim.gui.mnemonic.Pump pumpCondensate3;

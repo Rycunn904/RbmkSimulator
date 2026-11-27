@@ -16,17 +16,13 @@
  */
 package com.hartrusion.rbmksim;
 
-import java.awt.Window;
 import java.beans.PropertyChangeEvent;
 import com.hartrusion.values.ValueHandler;
 import com.hartrusion.mvc.InteractiveView;
 import com.hartrusion.mvc.UpdateReceiver;
 import com.hartrusion.mvc.ViewerController;
-import com.hartrusion.rbmksim.gui.AlarmSound;
-import com.hartrusion.rbmksim.gui.GuiThemeManager;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.SwingUtilities;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -45,12 +41,6 @@ public class ControlPanelManager implements InteractiveView {
     private ValueHandler plotData;
 
     private boolean isClient;
-
-    /**
-     * The application that runs the simulation, which starts the network
-     * server on request. It stays null on a client, which has no server.
-     */
-    private RbmkSimulator application;
 
     /**
      * Holds a list of all open control panel windows that are attached to this
@@ -94,85 +84,10 @@ public class ControlPanelManager implements InteractiveView {
 
     public void removeControlPanel(ControlPanel panel) {
         controlPanels.remove(panel);
-        if (controlPanels.isEmpty()) {
-            // The alarm sound is only updated by the control panels, so it
-            // would keep sounding without one. It is started again by the
-            // next control panel that receives the alarm list.
-            AlarmSound.update(null);
-        }
-        // A started server keeps the application running for its network
-        // clients, it is then terminated from the ServerView.
-        if (controlPanels.size() == 0 && !isServerStarted()) {
+        if (controlPanels.size() == 0) {
             // last closed control panel terminates the application.
             System.exit(0); // Terminate java vm
         }
-    }
-
-    /**
-     * Switches the GUI to another GUI theme. Swing only applies a look and feel
-     * to newly created components, so all windows of the application (control
-     * panels, debug frames and dialogs) are disposed and a single new control
-     * panel is opened afterwards, which receives the simulation data like the
-     * first one did on startup. Disposing does not fire the windowClosing
-     * event, so the closing of the last control panel does not terminate the
-     * application here. If the GUI theme cannot be installed, the windows are
-     * kept open. Called from the theme menu of ControlPanel on the event
-     * dispatch thread.
-     * <p>
-     * LLM code generated with Claude Opus 5.5
-     *
-     * @param theme GUI theme to switch to
-     */
-    public void switchTheme(GuiThemeManager theme) {
-        if (!theme.apply()) {
-            return;
-        }
-        controlPanels.clear();
-        for (Window window : Window.getWindows()) {
-            // The ServerView must stay open because it is the main window of
-            // a server session. It contains only standard Swing components,
-            // which can be updated to the new GUI theme reliably.
-            if (window instanceof ServerView) {
-                SwingUtilities.updateComponentTreeUI(window);
-                continue;
-            }
-            window.dispose();
-        }
-        displayNewControlPanel();
-    }
-
-    /**
-     * Connects this manager with the application, which is needed to start the
-     * network server from a control panel. Called on startup of the
-     * standalone and server application, but not on a client.
-     * <p>
-     * LLM code generated with Claude Opus 5.5
-     *
-     * @param application application that runs the simulation
-     */
-    public void registerApplication(RbmkSimulator application) {
-        this.application = application;
-    }
-
-    /**
-     * Starts the network server of the application and opens its ServerView.
-     * Called from the menu of ControlPanel.
-     * <p>
-     * LLM code generated with Claude Opus 5.5
-     */
-    public void startServer() {
-        if (application != null) {
-            application.startServer();
-        }
-    }
-
-    /**
-     * LLM code generated with Claude Opus 5.5
-     *
-     * @return true if the network server of the application was started
-     */
-    private boolean isServerStarted() {
-        return application != null && application.isServerStarted();
     }
 
     public void setAsClient() {
@@ -209,7 +124,6 @@ public class ControlPanelManager implements InteractiveView {
 
             for (ControlPanel p : controlPanels) {
                 p.updatePlots();
-                p.updateSnapshot((com.hartrusion.values.ValueSnapshot) newValue);
             }
             return;
         }

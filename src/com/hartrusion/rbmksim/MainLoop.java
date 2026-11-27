@@ -20,8 +20,11 @@ import com.hartrusion.alarm.AlarmListSnapshot;
 import com.hartrusion.alarm.AlarmManager;
 import com.hartrusion.values.ValueHandler;
 import com.hartrusion.mvc.ActionCommand;
+import com.hartrusion.mvc.Controller;
 import com.hartrusion.mvc.ModelListener;
 import com.hartrusion.mvc.ModelManipulation;
+import com.hartrusion.mvc.net.ClassBlueprints;
+import com.hartrusion.mvc.net.SocketServer;
 import com.hartrusion.rbmksim.gui.ExceptionPopup;
 import java.io.File;
 import java.io.FileInputStream;
@@ -52,36 +55,12 @@ public class MainLoop implements Runnable, ModelManipulation {
     private ValueHandler outputValues = new ValueHandler();
     public AlarmManager alarms = new AlarmManager(); // temporary public
 
-    /**
-     * True while the simulation is paused, either by the user or because a
-     * cycle failed with an exception. Volatile because the status of the
-     * simulation is read by ServerView.
-     */
-    private volatile boolean pause;
-
-    /**
-     * Set when a cycle failed with an exception, which leaves the model in an
-     * undefined state. Such a MainLoop can only be replaced by a new instance
-     * with the restart function of the server.
-     */
-    private volatile boolean crashed;
+    private boolean pause;
 
     long maxTime;
     long initialIterations = 0;
 
-    /**
-     * Minimum, maximum and average cycle time of the most recent cycles, which
-     * are sent to the GUI with the output values.
-     */
-    private final CycleTimeStatistics cycleTimeStatistics
-            = new CycleTimeStatistics(outputValues);
-
-    /**
-     * Memory, thread and CPU values of the JVM that runs the simulation, which
-     * are sent to the GUI with the output values.
-     */
-    private final JvmStatisticsOutput jvmStatisticsOutput
-            = new JvmStatisticsOutput(outputValues);
+    private final Object simLock = new Object();
 
     public void init() {
         ModelListener safeController = (ModelListener) java.lang.reflect.Proxy.newProxyInstance(
@@ -118,60 +97,53 @@ public class MainLoop implements Runnable, ModelManipulation {
         turbine.init();
         turbine.registerParameterOutput(outputValues);
         turbine.registerController(safeController);
-
-        // The structure of the solvers is final after the initialization of
-        // the subsystems, so it is written to the output values only once.
-        SolverStatistics solverStatistics = new SolverStatistics(outputValues);
-        solverStatistics.addSolver(process.getSolver());
-        solverStatistics.addSolver(turbine.getRotorSolver());
-        solverStatistics.addSolver(turbine.getOilSolver());
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void run() {
-        long startTime, stopTime;
-        startTime = System.nanoTime();
+        synchronized (simLock) {
+            long startTime, stopTime;
+            startTime = System.nanoTime();
 
-        try {
-            // Get all the values and GUI commands first.
-            controller.fireActions();
-            if (!pause) {
-                core.run();
-                if (!core.isExploded()) {
-                    process.run();
-                    // process.run has updated the whole dynamic model by 1 
-                    // cycle, the data of all the fuel cells is organized in the 
-                    // core so we call it from there:
-                    core.runProcessResults();
+            try {
+                // Get all the values and GUI commands first.
+                controller.fireActions();
+                if (!pause) {
+                    core.run();
+                    if (!core.isExploded()) {
+                        process.run();
+                        // process.run has updated the whole dynamic model by 1
+                        // cycle, the data of all the fuel cells is organized in the
+                        // core so we call it from there:
+                        core.runProcessResults();
+                    }
+
+                    turbine.run();
+                    // Send all measurement data to the GUI by generating a snapshot
+                    // and sending them to the GUI, this will generate a history of
+                    // values there (implemented for network view)
+                    controller.propertyChange("OutputSnapshot",
+                            outputValues.getSnapshot());
+
+                    controller.propertyChange("AlarmListSnapshot",
+                            AlarmListSnapshot.fromAlarmList(alarms.getAlarmList()));
                 }
-                
-                turbine.run();
-                // Send all measurement data to the GUI by generating a snapshot
-                // and sending them to the GUI, this will generate a history of
-                // values there (implemented for network view)
-                controller.propertyChange("OutputSnapshot",
-                        outputValues.getSnapshot());
-
-                controller.propertyChange("AlarmListSnapshot",
-                        AlarmListSnapshot.fromAlarmList(alarms.getAlarmList()));
+            } catch (Exception e) {
+                pause = true;
+                ExceptionPopup.show(e);
+                // System.exit(0);
             }
-        } catch (Exception e) {
-            pause = true;
-            crashed = true;
-            ExceptionPopup.show(e);
-            // System.exit(0);
-        }
 
-        stopTime = System.nanoTime();
-        cycleTimeStatistics.addCycle(stopTime - startTime);
-        jvmStatisticsOutput.addCycle();
-        if (stopTime - startTime > maxTime) {
-            if (initialIterations > 2) {
-                maxTime = stopTime - startTime;
-                LOGGER.log(Level.INFO, "New max cyclic time: "
-                        + maxTime / 1000 + " us");
-            } else {
-                initialIterations++;
+            stopTime = System.nanoTime();
+            if (stopTime - startTime > maxTime) {
+                if (initialIterations > 2) {
+                    maxTime = stopTime - startTime;
+                    LOGGER.log(Level.INFO, "New max cyclic time: "
+                            + maxTime / 1000 + " us");
+                } else {
+                    initialIterations++;
+                }
             }
         }
     }
@@ -195,38 +167,58 @@ public class MainLoop implements Runnable, ModelManipulation {
         }
 
         if (ac.getPropertyName().equals("SaveSimulationState")) {
-            try (ObjectOutputStream oos = new ObjectOutputStream(
-                    new FileOutputStream(
-                            new File((String) ac.getValue())))) {
-                SaveGame save = new SaveGame();
-                process.saveTo(save);
-                core.saveTo(save);
-                turbine.saveTo(save);
-                oos.writeObject(save);
-                LOGGER.log(Level.INFO, "Simulation state saved to: "
-                        + ac.getValue());
-            } catch (IOException e) {
-                ExceptionPopup.show(e);
+            synchronized (simLock) {
+                try (ObjectOutputStream oos = new ObjectOutputStream(
+                        new FileOutputStream(
+                                new File((String) ac.getValue())))) {
+                    SaveGame save = new SaveGame();
+                    process.saveTo(save);
+                    core.saveTo(save);
+                    turbine.saveTo(save);
+                    oos.writeObject(save);
+                    LOGGER.log(Level.INFO, "Simulation state saved to: "
+                            + ac.getValue());
+                } catch (IOException e) {
+                    ExceptionPopup.show(e);
+                }
             }
             return;
         }
 
         if (ac.getPropertyName().equals("LoadSimulationState")) {
-            initialIterations = 0; // first iteration will be very long.
-            try (ObjectInputStream ois = new ObjectInputStream(
-                    new FileInputStream(
-                            new File((String) ac.getValue())))) {
-                SaveGame save = (SaveGame) ois.readObject();
-                alarms.clear();
-                core.load(save);
-                process.load(save);
-                turbine.load(save);
-                LOGGER.log(Level.INFO, "Simulation state loaded from: "
-                        + ac.getValue() + " (saved at: "
-                        + save.getTimestamp() + ")");
-            } catch (IOException | ClassNotFoundException e) {
-                ExceptionPopup.show(e);
+            synchronized (simLock) {
+                initialIterations = 0; // first iteration will be very long.
+                try (ObjectInputStream ois = new ObjectInputStream(
+                        new FileInputStream(
+                                new File((String) ac.getValue())))) {
+                    SaveGame save = (SaveGame) ois.readObject();
+                    alarms.clear();
+                    core.load(save);
+                    process.load(save);
+                    turbine.load(save);
+                    LOGGER.log(Level.INFO, "Simulation state loaded from: "
+                            + ac.getValue() + " (saved at: "
+                            + save.getTimestamp() + ")");
+                } catch (IOException | ClassNotFoundException e) {
+                    ExceptionPopup.show(e);
+                }
             }
+            return;
+        }
+
+        if (ac.getPropertyName().equals("StartServer")) {
+            // Build Server
+            ClassBlueprints registry = CommBlueprints.createCommBlueprints();
+
+            SocketServer netServer = new SocketServer((Controller) controller, registry);
+            new Thread(() -> {
+                try {
+                    netServer.startServer(26486);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+            new Thread(new UdpPlayerRelay(26486), "RbmkUdpRelay").start();
             return;
         }
 
@@ -236,24 +228,6 @@ public class MainLoop implements Runnable, ModelManipulation {
         core.handleAction(ac);
         process.handleAction(ac);
         turbine.handleAction(ac);
-    }
-
-    /**
-     * LLM code generated with Claude Opus 5.5
-     *
-     * @return true while the simulation is paused
-     */
-    public boolean isPaused() {
-        return pause;
-    }
-
-    /**
-     * LLM code generated with Claude Opus 5.5
-     *
-     * @return true if a cycle failed with an exception
-     */
-    public boolean isCrashed() {
-        return crashed;
     }
 
     @Override // called on initialization

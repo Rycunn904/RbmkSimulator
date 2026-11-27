@@ -22,9 +22,11 @@ import com.hartrusion.mvc.net.NetViewAdapter;
 import com.hartrusion.rbmksim.gui.ExceptionPopup;
 import com.hartrusion.util.SimpleLogOut;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.plaf.metal.MetalLookAndFeel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import com.hartrusion.rbmksim.gui.GuiThemeManager;
+import com.hartrusion.rbmksim.gui.elements.ChornobylMetalTheme;
 
 /**
  * Standalone network client for the RBMK simulator.
@@ -37,7 +39,7 @@ public class RbmkSimulatorClient {
     private static final Logger LOGGER
             = Logger.getLogger(RbmkSimulatorClient.class.getName());
 
-    private static final String DEFAULT_ADDRESS = "192.168.1.105:26486";
+    private static final String DEFAULT_ADDRESS = "127.0.0.1:26486";
 
     private static final class HostPort {
         final String host;
@@ -86,8 +88,20 @@ public class RbmkSimulatorClient {
     }
 
     private void setLookAndFeel() {
-        if (!GuiThemeManager.DEFAULT_THEME.apply()) {
-            throw new RuntimeException("Failed to initialize look and feel.");
+        try {
+            for (UIManager.LookAndFeelInfo info
+                    : UIManager.getInstalledLookAndFeels()) {
+                if ("Metal".equals(info.getName())) {
+                    MetalLookAndFeel.setCurrentTheme(new ChornobylMetalTheme());
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException
+                | InstantiationException
+                | IllegalAccessException
+                | javax.swing.UnsupportedLookAndFeelException ex) {
+            throw new RuntimeException("Failed to initialize look and feel.", ex);
         }
     }
 

@@ -38,7 +38,18 @@
   <SubComponents>
     <Container class="com.hartrusion.rbmksim.gui.elements.Ammeter" name="ammeterVessel1Pressure">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
         <Property name="chornobylMinimum" type="double" value="30.0"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="leftLabel" type="java.lang.String" value="30 bar"/>
         <Property name="rightLabel" type="java.lang.String" value="100 bar"/>
       </Properties>
@@ -54,7 +65,18 @@
     </Container>
     <Container class="com.hartrusion.rbmksim.gui.elements.Ammeter" name="ammeterVessel2Pressure">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
         <Property name="chornobylMinimum" type="double" value="30.0"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="leftLabel" type="java.lang.String" value="30 bar"/>
         <Property name="rightLabel" type="java.lang.String" value="100 bar"/>
       </Properties>
@@ -170,6 +192,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonDrumDrain1CoolantClose">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="80" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="C"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -187,6 +212,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonDrumDrain1CoolantOpen">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="80" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="O"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -229,6 +257,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonDrumDrain2CoolantClose">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="80" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="C"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -246,6 +277,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonDrumDrain2CoolantOpen">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="80" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="O"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -822,6 +856,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonSprinklerCoolant1Close">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="80" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="C"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -839,6 +876,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonSprinklerCoolant1Open">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="80" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="O"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -891,6 +931,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonSprinklerCoolant2Close">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="80" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="C"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -908,6 +951,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonSprinklerCoolant2Open">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="80" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="O"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -1134,8 +1180,19 @@
     </Component>
     <Container class="com.hartrusion.rbmksim.gui.elements.Ammeter" name="ammeterPSPTemperature">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
         <Property name="chornobylMaximum" type="double" value="90.0"/>
         <Property name="chornobylMinimum" type="double" value="20.0"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="leftLabel" type="java.lang.String" value="20 &#xb0;C"/>
         <Property name="rightLabel" type="java.lang.String" value="90 &#xb0;C"/>
       </Properties>
@@ -1167,7 +1224,18 @@
     </Component>
     <Container class="com.hartrusion.rbmksim.gui.elements.Ammeter" name="ammeterPSPLevel">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
         <Property name="chornobylMaximum" type="double" value="2.0"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="leftLabel" type="java.lang.String" value="0 m"/>
         <Property name="rightLabel" type="java.lang.String" value="2 m"/>
       </Properties>
@@ -1231,8 +1299,19 @@
     </Component>
     <Container class="com.hartrusion.rbmksim.gui.elements.Ammeter" name="ammeterCCSTemperature">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
         <Property name="chornobylMaximum" type="double" value="60.0"/>
         <Property name="chornobylMinimum" type="double" value="20.0"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="leftLabel" type="java.lang.String" value="20 &#xb0;C"/>
         <Property name="rightLabel" type="java.lang.String" value="60 &#xb0;C"/>
       </Properties>
@@ -1264,7 +1343,18 @@
     </Component>
     <Container class="com.hartrusion.rbmksim.gui.elements.Ammeter" name="ammeterCCSLevel">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
         <Property name="chornobylMaximum" type="double" value="10.0"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="leftLabel" type="java.lang.String" value="0 m"/>
         <Property name="rightLabel" type="java.lang.String" value="10 m"/>
       </Properties>
@@ -1312,7 +1402,18 @@
     </Component>
     <Container class="com.hartrusion.rbmksim.gui.elements.Ammeter" name="ammeterDrum1Pressure">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
         <Property name="chornobylMaximum" type="double" value="75.0"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="leftLabel" type="java.lang.String" value="0 bar"/>
         <Property name="rightLabel" type="java.lang.String" value="75 bar"/>
       </Properties>
@@ -1344,7 +1445,18 @@
     </Component>
     <Container class="com.hartrusion.rbmksim.gui.elements.Ammeter" name="ammeterDrum1Level">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
         <Property name="chornobylMinimum" type="double" value="-100.0"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="leftLabel" type="java.lang.String" value="-100 cm"/>
         <Property name="rightLabel" type="java.lang.String" value="100 cm"/>
       </Properties>
@@ -1392,7 +1504,18 @@
     </Component>
     <Container class="com.hartrusion.rbmksim.gui.elements.Ammeter" name="ammeterDrum2Pressure">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
         <Property name="chornobylMaximum" type="double" value="75.0"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="leftLabel" type="java.lang.String" value="0 bar"/>
         <Property name="rightLabel" type="java.lang.String" value="75 bar"/>
       </Properties>
@@ -1424,7 +1547,18 @@
     </Component>
     <Container class="com.hartrusion.rbmksim.gui.elements.Ammeter" name="ammeterDrum2Level">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
         <Property name="chornobylMinimum" type="double" value="-100.0"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="leftLabel" type="java.lang.String" value="-100 cm"/>
         <Property name="rightLabel" type="java.lang.String" value="100 cm"/>
       </Properties>
@@ -1484,6 +1618,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jButtonToMcpHeader11Close">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="80" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="C"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -1501,6 +1638,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonToMcpHeader11Open">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="80" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="O"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -1559,6 +1699,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonToMcpHeader12Close">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="80" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="C"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -1576,6 +1719,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonToMcpHeader12Open">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="80" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="O"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -1618,6 +1764,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonToMcpHeader13Close">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="80" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="C"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -1635,6 +1784,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonToMcpHeader13Open">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="80" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="O"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -1677,6 +1829,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonToMcpHeader21Close">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="80" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="C"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -1694,6 +1849,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonToMcpHeader21Open">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="80" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="O"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -1736,6 +1894,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonToMcpHeader22Close">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="80" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="C"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -1753,6 +1914,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonToMcpHeader22Open">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="80" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="O"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -1795,6 +1959,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonToMcpHeader23Close">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="80" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="C"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -1812,6 +1979,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonToMcpHeader23Open">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="80" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="O"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -2590,6 +2760,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonCoolantPSPP1Close">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="80" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="C"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -2607,6 +2780,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonCoolantPSPP1Open">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="80" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="O"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -2815,6 +2991,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonCoolantPSPP2Close">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="80" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="C"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -2832,6 +3011,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonCoolantPSPP2Open">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="80" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="O"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -3040,6 +3222,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonCoolantPSPP3Close">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="80" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="C"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -3057,6 +3242,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonCoolantPSPP3Open">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="80" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="O"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">

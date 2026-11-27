@@ -25,9 +25,8 @@ Thumbs.db
 /.claude
 /CLAUDE.md
 
-# LLM documentation and probe scripts (kept local only)
-/LLM-GLOSSARY.md
-/LLM-HISTORY.md
-/probes/
-/probe-scripts/
-/probe_scripts/
+# Build Files and jars
+*.jar
+dist_input
+dist_output
+build.ps1
