@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-$WorkspaceRoot = "C:\Users\CatBo\OneDrive\Desktop\CODE\RbmkSimulator-0.4.6"
+$WorkspaceRoot = "C:\Users\CatBo\OneDrive\Desktop\CODE\RbmkServer"
 $SimRoot       = $PSScriptRoot
 $BuildTmp      = Join-Path $SimRoot "build_tmp"
 $LibsDir       = Join-Path $BuildTmp "libs"
