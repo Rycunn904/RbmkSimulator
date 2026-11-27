@@ -386,10 +386,16 @@ public class EvaporatorElement extends FuelElement {
                     = (Water.INSTANCE.getSaturationTemperature(evapToDrumNode.getEffort())
                     - ((HeatNode) flowResistance.getNode(1)).getTemperature());
             double deltaH_subcooling = deltaT_subcooling * Water.INSTANCE.getSpecificHeatCapacity();
-
-            criticalPowerRatio = Math.min(-evapToDrumNode.getFlow(evaporator)
-                    * (deltaH_subcooling + 0.25 * Water.INSTANCE.getVaporizationHeatEnergy())
-                    / groupFissionPower, 9.990);
+            if (!evapToDrumNode.flowUpdated(evaporator)) {
+                // for an unknown reason, switching off all MCPs on full power
+                // can cause an exception here, another bug in the solver
+                // propably.
+                criticalPowerRatio = 0.0;
+            } else { // intended path:
+                criticalPowerRatio = Math.min(-evapToDrumNode.getFlow(evaporator)
+                        * (deltaH_subcooling + 0.25 * Water.INSTANCE.getVaporizationHeatEnergy())
+                        / groupFissionPower, 9.990);
+            }
         } else {
             criticalPowerRatio = 9.990;
         }
