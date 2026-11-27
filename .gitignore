@@ -28,5 +28,6 @@ Thumbs.db
 # Build Files and jars
 *.jar
 dist_input
+build_tmp
 dist_output
 build.ps1

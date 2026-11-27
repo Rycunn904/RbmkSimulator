@@ -41,7 +41,7 @@ import com.hartrusion.rbmksim.gui.widgets.*;
 import com.hartrusion.rbmksim.gui.mnemonic.*;
 import com.hartrusion.rbmksim.gui.panels.PanelEccs;
 import com.hartrusion.rbmksim.gui.panels.PanelPressureSetpoint;
-import com.hartrusion.util.JDesktopPaneEnhanced;
+import com.hartrusion.swing.JDesktopPaneEnhanced;
 import com.hartrusion.values.ValueHandler;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyVetoException;
@@ -142,7 +142,7 @@ public class ControlPanel extends javax.swing.JFrame implements
         jTextField1 = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jDesktopPane1 = new com.hartrusion.util.JDesktopPaneEnhanced();
+        jDesktopPane1 = new com.hartrusion.swing.JDesktopPaneEnhanced();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuFile = new javax.swing.JMenu();
         jMenuItemNewPanel = new javax.swing.JMenuItem();
@@ -1781,7 +1781,7 @@ public class ControlPanel extends javax.swing.JFrame implements
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.hartrusion.util.JDesktopPaneEnhanced jDesktopPane1;
+    private com.hartrusion.swing.JDesktopPaneEnhanced jDesktopPane1;
     private javax.swing.JMenuItem jMenuAbout;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuControls;
