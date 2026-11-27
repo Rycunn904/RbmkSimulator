@@ -27,7 +27,7 @@ import com.hartrusion.mvc.UpdateReceiver;
  *
  * @author Viktor Alexander Hartung
  */
-public class PanelMnemonicAuxiliaryCondenser extends com.hartrusion.util.JPanelScaleable
+public class PanelMnemonicAuxiliaryCondenser extends javax.swing.JPanel
         implements UpdateReceiver {
 
     /**
@@ -74,7 +74,7 @@ public class PanelMnemonicAuxiliaryCondenser extends com.hartrusion.util.JPanelS
         jLabelReadingCondenser1Level = new javax.swing.JLabel();
         jLabelReadingCondenser2Level = new javax.swing.JLabel();
         jLabelReadingCondensateTemperature = new javax.swing.JLabel();
-        mnemonicBackground = new com.hartrusion.rbmksim.gui.mnemonic.MnemonicAuxiliaryCondenserBackground();
+        jLabelBackground = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(220, 308));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -238,11 +238,13 @@ public class PanelMnemonicAuxiliaryCondenser extends com.hartrusion.util.JPanelS
         jLabelReadingCondensateTemperature.setOpaque(true);
         add(jLabelReadingCondensateTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 214, 56, 16));
 
-        add(mnemonicBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hartrusion/rbmksim/gui/mnemonic/MnemonicAuxiliaryCondenser.png"))); // NOI18N
+        add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelBackground;
     private javax.swing.JLabel jLabelReadingCondensateTemperature;
     private javax.swing.JLabel jLabelReadingCondensateValve1;
     private javax.swing.JLabel jLabelReadingCondensateValve2;
@@ -258,7 +260,6 @@ public class PanelMnemonicAuxiliaryCondenser extends com.hartrusion.util.JPanelS
     private javax.swing.JLabel jLabelReadingSteamValve2;
     private javax.swing.JLabel jLabelReadingValveToDrain;
     private javax.swing.JLabel jLabelReadingValveToHotwell;
-    private com.hartrusion.rbmksim.gui.mnemonic.MnemonicAuxiliaryCondenserBackground mnemonicBackground;
     private com.hartrusion.rbmksim.gui.mnemonic.Pump pump1;
     private com.hartrusion.rbmksim.gui.mnemonic.Pump pump2;
     private com.hartrusion.rbmksim.gui.mnemonic.Valve valveCondDrain1;

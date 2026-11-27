@@ -68,8 +68,8 @@ public class Pump extends JComponent implements SwingConstants {
 
     public Pump() {
         // Initialize mnemnomic display colors.
-        setBackground(MnemonicColors.getPassive()); // passive
-        setForeground(MnemonicColors.getActive()); // active
+        setBackground(new Color(95, 98, 88)); // passive
+        setForeground(new Color(14, 222, 194)); // active
         // background color would be 56, 59, 58
         setPreferredSize(new Dimension(41, 36));
 

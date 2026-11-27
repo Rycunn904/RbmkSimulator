@@ -16,29 +16,34 @@
  */
 package com.hartrusion.rbmksim.gui.widgets;
 
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JToggleButton;
 import com.hartrusion.control.ValveState;
 import com.hartrusion.mvc.ActionReceiver;
-import com.hartrusion.rbmksim.gui.GuiThemeManager;
+import com.hartrusion.mvc.UpdateReceiver;
 import com.hartrusion.rbmksim.gui.InteractiveComponent;
-import com.hartrusion.rbmksim.gui.RbmkPanelButtonColors;
 
 /**
  * Base class for panels that are used with the MVC pattern with switches.
- * Provides methods to set the state colors of the panel buttons and an instance
- * of an action receiver (usually the controller instance).
- * <p>
- * The panel buttons exist in the types green, red, gray, yellow and white, and
- * each type has a normal and a highlighted state. The colors of these states
- * are not defined here but in the RbmkPanelButtonColors of the active GUI
- * theme, so that a
- * dark theme can provide its own button colors.
+ * Provides some color constants, methods to set those to the buttons and an
+ * instance of an action receiver (usually the controller instance).
  *
  * @author Viktor Alexander Hartung
  */
 public abstract class AbstractPanelWidget extends javax.swing.JPanel
         implements InteractiveComponent {
+
+    protected static final Color GREEN = new Color(0, 128, 0);
+    protected static final Color LIME = new Color(0, 255, 0);
+    protected static final Color DARKRED = new Color(128, 0, 0);
+    protected static final Color RED = new Color(255, 0, 0);
+    protected static final Color DARKYELLOW = new Color(128, 128, 0);
+    protected static final Color YELLOW = new Color(208, 208, 0);
+    protected static final Color WHITE = new Color(255, 255, 255);
+    protected static final Color GRAY = new Color(128, 128, 128);
+    protected static final Color LIGHTGRAY = new Color(208, 208, 208);
+    protected static final Color DARKGRAY = new Color(92, 92, 92);
 
     protected ActionReceiver controller;
 
@@ -76,13 +81,13 @@ public abstract class AbstractPanelWidget extends javax.swing.JPanel
             }
         }
     }
-
+    
     /**
      * Updates a set of two buttons when receiving a property change event that
      * contains a ValveState. This gets created in ValveActuatorMonitor and this
      * method can be called to process the event to display the new valves state
-     * with an open and close button (gray and green). Its named "less" as it is
-     * less colorful, was not intended in initial architecture.
+     * with an open and close button (gray and green). Its named "less" as it 
+     * is less colorful, was not intended in initial architecture.
      *
      * @param buttonClose Gray Close-Button
      * @param buttonOpen Red Open-Button
@@ -109,97 +114,74 @@ public abstract class AbstractPanelWidget extends javax.swing.JPanel
     }
 
     /**
-     * Returns the panel button colors of the active GUI theme. The colors are
-     * read on each call instead of being kept in a field, because the GUI
-     * theme can be switched while the application runs.
-     * <p>
-     * LLM code generated with Claude Opus 5.5
-     *
-     * @return Panel button colors of the active GUI theme
-     */
-    private RbmkPanelButtonColors getActivePanelButtonColors() {
-        return GuiThemeManager.getActiveTheme().getPanelButtonColors();
-    }
-
-    /**
-     * Used to set green buttons either to highlight or non-highlited state. The
-     * colors of all panel button types are taken from the active theme.
+     * Used to set green buttons either to highlight or non-highlited state.
      *
      * @param button
-     * @param val true for the highlighted state
+     * @param val
      */
     protected void setGreenButtonColor(JButton button, boolean val) {
-        RbmkPanelButtonColors theme = getActivePanelButtonColors();
         if (val) {
-            button.setBackground(theme.getGreenButtonHighlight());
+            button.setBackground(LIME);
         } else {
-            button.setBackground(theme.getGreenButtonBackground());
+            button.setBackground(GREEN);
         }
-        button.setForeground(theme.getGreenButtonForeground());
     }
-
+    
     /**
      * Used to set gray buttons either to highlight or non-highlited state.
      *
      * @param button
-     * @param val true for the highlighted state
+     * @param val
      */
     protected void setGrayButtonColor(JButton button, boolean val) {
-        RbmkPanelButtonColors theme = getActivePanelButtonColors();
         if (val) {
-            button.setBackground(theme.getGrayButtonHighlight());
+            button.setBackground(LIGHTGRAY);
         } else {
-            button.setBackground(theme.getGrayButtonBackground());
+            button.setBackground(DARKGRAY);
         }
-        button.setForeground(theme.getGrayButtonForeground());
     }
 
     /**
      * Used to set red buttons either to highlight or non-highlited state.
      *
      * @param button
-     * @param val true for the highlighted state
+     * @param val
      */
     protected void setRedButtonColor(JButton button, boolean val) {
-        RbmkPanelButtonColors theme = getActivePanelButtonColors();
         if (val) {
-            button.setBackground(theme.getRedButtonHighlight());
+            button.setBackground(RED);
         } else {
-            button.setBackground(theme.getRedButtonBackground());
+            button.setBackground(DARKRED);
         }
-        button.setForeground(theme.getRedButtonForeground());
     }
 
     /**
      * Used to set yellow buttons either to highlight or non-highlited state.
      *
      * @param button
-     * @param val true for the highlighted state
+     * @param val
      */
     protected void setYellowButtonColor(JButton button, boolean val) {
-        RbmkPanelButtonColors theme = getActivePanelButtonColors();
         if (val) {
-            button.setBackground(theme.getYellowButtonHighlight());
+            button.setBackground(YELLOW);
         } else {
-            button.setBackground(theme.getYellowButtonBackground());
+            button.setBackground(DARKYELLOW);
         }
-        button.setForeground(theme.getYellowButtonForeground());
     }
-
+    
     /**
-     * Used to set white buttons either to highlight or non-highlited state.
+     * Used to set yellow buttons either to highlight or non-highlited state.
      *
      * @param button
-     * @param val true for the highlighted state
+     * @param val
      */
     protected void setWhiteButtonColor(JButton button, boolean val) {
-        RbmkPanelButtonColors theme = getActivePanelButtonColors();
         if (val) {
-            button.setBackground(theme.getWhiteButtonHighlight());
+            button.setBackground(WHITE);
         } else {
-            button.setBackground(theme.getWhiteButtonBackground());
+            button.setBackground(GRAY);
         }
-        button.setForeground(theme.getWhiteButtonForeground());
+        button.setForeground(Color.BLACK);
     }
 
     /**

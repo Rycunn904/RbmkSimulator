@@ -32,6 +32,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="jButton4028">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton4028" property="font" relativeSize="true" size="-5"/>
@@ -60,6 +63,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton4031">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton4031" property="font" relativeSize="true" size="-5"/>
@@ -91,6 +97,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton4034">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton4034" property="font" relativeSize="true" size="-5"/>
@@ -122,6 +131,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3728">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3728" property="font" relativeSize="true" size="-5"/>
@@ -150,6 +162,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3725">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3725" property="font" relativeSize="true" size="-5"/>
@@ -178,6 +193,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3731">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3731" property="font" relativeSize="true" size="-5"/>
@@ -206,6 +224,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3734">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3734" property="font" relativeSize="true" size="-5"/>
@@ -234,6 +255,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3737">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3737" property="font" relativeSize="true" size="-5"/>
@@ -262,6 +286,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3428">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3428" property="font" relativeSize="true" size="-5"/>
@@ -290,6 +317,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3425">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3425" property="font" relativeSize="true" size="-5"/>
@@ -318,6 +348,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3431">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3431" property="font" relativeSize="true" size="-5"/>
@@ -346,6 +379,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3434">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3434" property="font" relativeSize="true" size="-5"/>
@@ -374,6 +410,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3437">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3437" property="font" relativeSize="true" size="-5"/>
@@ -402,6 +441,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3440">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3440" property="font" relativeSize="true" size="-5"/>
@@ -430,6 +472,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3422">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3422" property="font" relativeSize="true" size="-5"/>
@@ -458,6 +503,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3122">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3122" property="font" relativeSize="true" size="-5"/>
@@ -486,6 +534,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3128">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3128" property="font" relativeSize="true" size="-5"/>
@@ -514,6 +565,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3125">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3125" property="font" relativeSize="true" size="-5"/>
@@ -542,6 +596,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3131">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3131" property="font" relativeSize="true" size="-5"/>
@@ -570,6 +627,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3134">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3134" property="font" relativeSize="true" size="-5"/>
@@ -598,6 +658,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3137">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3137" property="font" relativeSize="true" size="-5"/>
@@ -626,6 +689,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3140">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton3140" property="font" relativeSize="true" size="-5"/>
@@ -654,6 +720,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2822">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2822" property="font" relativeSize="true" size="-5"/>
@@ -682,6 +751,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2828">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2828" property="font" relativeSize="true" size="-5"/>
@@ -710,6 +782,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2825">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2825" property="font" relativeSize="true" size="-5"/>
@@ -738,6 +813,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2831">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2831" property="font" relativeSize="true" size="-5"/>
@@ -766,6 +844,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2834">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2834" property="font" relativeSize="true" size="-5"/>
@@ -794,6 +875,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2837">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2837" property="font" relativeSize="true" size="-5"/>
@@ -822,6 +906,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2840">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2840" property="font" relativeSize="true" size="-5"/>
@@ -850,6 +937,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2528">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2528" property="font" relativeSize="true" size="-5"/>
@@ -878,6 +968,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2525">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2525" property="font" relativeSize="true" size="-5"/>
@@ -906,6 +999,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2531">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2531" property="font" relativeSize="true" size="-5"/>
@@ -934,6 +1030,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2534">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2534" property="font" relativeSize="true" size="-5"/>
@@ -962,6 +1061,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2537">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2537" property="font" relativeSize="true" size="-5"/>
@@ -990,6 +1092,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2228">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2228" property="font" relativeSize="true" size="-5"/>
@@ -1018,6 +1123,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2231">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2231" property="font" relativeSize="true" size="-5"/>
@@ -1049,6 +1157,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2234">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="80" red="80" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
           <FontInfo relative="true">
             <Font component="jButton2234" property="font" relativeSize="true" size="-5"/>
@@ -2831,8 +2942,8 @@
     </Container>
     <Container class="javax.swing.JPanel" name="jPanelCoreInstrument">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="elementColors.getCoreInstrumentBackground()" type="code"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -2852,14 +2963,14 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabelReadingXe">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="elementColors.getDigitalReadingBackground()" type="code"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Monospaced" size="10" style="0"/>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="elementColors.getDigitalReadingForeground()" type="code"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="ff" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="___"/>
@@ -2883,14 +2994,14 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelReadingReactivity">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="elementColors.getDigitalReadingBackground()" type="code"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Monospaced" size="10" style="0"/>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="elementColors.getDigitalReadingForeground()" type="code"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="ff" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="-_,____"/>
@@ -2914,14 +3025,14 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelReadingFlux">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="elementColors.getDigitalReadingBackground()" type="code"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Monospaced" size="10" style="0"/>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="elementColors.getDigitalReadingForeground()" type="code"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="ff" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="___,__"/>
@@ -3075,9 +3186,20 @@
         </Component>
         <Container class="com.hartrusion.rbmksim.gui.elements.Ammeter" name="ammeterFluxLog">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
             <Property name="chornobylMaximum" type="double" value="-1.0"/>
             <Property name="chornobylMinimum" type="double" value="-6.0"/>
             <Property name="chornobylValue" type="double" value="-3.5"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="leftLabel" type="java.lang.String" value="-6"/>
             <Property name="rightLabel" type="java.lang.String" value="-1"/>
           </Properties>
@@ -3093,8 +3215,19 @@
         </Container>
         <Container class="com.hartrusion.rbmksim.gui.elements.Ammeter" name="ammeterRate">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
             <Property name="chornobylMaximum" type="double" value="2.5"/>
             <Property name="chornobylMinimum" type="double" value="-2.5"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="leftLabel" type="java.lang.String" value="-2.5"/>
             <Property name="rightLabel" type="java.lang.String" value="+2.5"/>
           </Properties>

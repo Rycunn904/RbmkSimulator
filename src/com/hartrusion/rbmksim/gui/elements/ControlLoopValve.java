@@ -16,8 +16,7 @@
  */
 package com.hartrusion.rbmksim.gui.elements;
 
-import com.hartrusion.rbmksim.gui.GuiThemeManager;
-import com.hartrusion.rbmksim.gui.RbmkElementColors;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.beans.BeanProperty;
@@ -39,11 +38,6 @@ import com.hartrusion.mvc.UpdateReceiver;
  * <p>
  * The display gauge in the middle displays a value between 0 and 100.
  *
- * <p>
- * All colors are taken from the RbmkElementColors of the active GUI theme, so
- * that the yellowed buttons of the light theme become dark metallic blue in
- * the dark theme.
- *
  * @author Viktor Alexander Hartung
  */
 public class ControlLoopValve extends javax.swing.JPanel
@@ -61,17 +55,6 @@ public class ControlLoopValve extends javax.swing.JPanel
     private String component = "undefined";
     private String actionCommand;
     private String componentControlState;
-
-    /**
-     * Colors of the active GUI theme, which are read once when the module is
-     * created, because all windows are created again when the GUI theme is
-     * switched. The field is initialized before the constructor runs, so that
-     * initComponents() can already take its colors from it.
-     * <p>
-     * LLM code generated with Claude Opus 5.5
-     */
-    private final RbmkElementColors elementColors
-            = GuiThemeManager.getActiveTheme().getElementColors();
 
     public String getComponent() {
         return component;
@@ -140,15 +123,15 @@ public class ControlLoopValve extends javax.swing.JPanel
         jButtonLower = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(elementColors.getControlLoopValveBackground());
-        setBorder(javax.swing.BorderFactory.createLineBorder(elementColors.getControlLoopBorder()));
+        setBackground(new java.awt.Color(204, 204, 204));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setMaximumSize(new java.awt.Dimension(90, 36));
         setMinimumSize(new java.awt.Dimension(90, 36));
         setPreferredSize(new java.awt.Dimension(90, 36));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonUpper.setBackground(elementColors.getControlLoopValveButtonBackground());
-        jButtonUpper.setForeground(elementColors.getControlLoopValveButtonForeground());
+        jButtonUpper.setBackground(new java.awt.Color(255, 255, 204));
+        jButtonUpper.setForeground(new java.awt.Color(0, 0, 0));
         jButtonUpper.setText(">");
         jButtonUpper.setToolTipText("");
         jButtonUpper.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -165,8 +148,8 @@ public class ControlLoopValve extends javax.swing.JPanel
         });
         add(jButtonUpper, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 18, 20, 16));
 
-        jButtonAuto.setBackground(elementColors.getControlLoopValveButtonBackground());
-        jButtonAuto.setForeground(elementColors.getControlLoopValveButtonForeground());
+        jButtonAuto.setBackground(new java.awt.Color(255, 255, 204));
+        jButtonAuto.setForeground(new java.awt.Color(0, 0, 0));
         jButtonAuto.setText("Ꝋ");
         jButtonAuto.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButtonAuto.setMaximumSize(new java.awt.Dimension(20, 16));
@@ -179,8 +162,8 @@ public class ControlLoopValve extends javax.swing.JPanel
         });
         add(jButtonAuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 18, 20, 16));
 
-        jButtonManual.setBackground(elementColors.getControlLoopValveButtonBackground());
-        jButtonManual.setForeground(elementColors.getControlLoopValveButtonForeground());
+        jButtonManual.setBackground(new java.awt.Color(255, 255, 204));
+        jButtonManual.setForeground(new java.awt.Color(0, 0, 0));
         jButtonManual.setText("н");
         jButtonManual.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButtonManual.setMaximumSize(new java.awt.Dimension(20, 16));
@@ -193,8 +176,8 @@ public class ControlLoopValve extends javax.swing.JPanel
         });
         add(jButtonManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 18, 20, 16));
 
-        jButtonLower.setBackground(elementColors.getControlLoopValveButtonBackground());
-        jButtonLower.setForeground(elementColors.getControlLoopValveButtonForeground());
+        jButtonLower.setBackground(new java.awt.Color(255, 255, 204));
+        jButtonLower.setForeground(new java.awt.Color(0, 0, 0));
         jButtonLower.setText("<");
         jButtonLower.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButtonLower.setMaximumSize(new java.awt.Dimension(20, 16));
@@ -215,9 +198,9 @@ public class ControlLoopValve extends javax.swing.JPanel
         });
         add(jButtonLower, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 18, 20, 16));
 
-        jLabel1.setBackground(elementColors.getControlLoopValveButtonBackground());
+        jLabel1.setBackground(new java.awt.Color(255, 255, 204));
         jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getStyle() & ~java.awt.Font.BOLD, jLabel1.getFont().getSize()-2));
-        jLabel1.setForeground(elementColors.getControlLoopValveButtonForeground());
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setText("H");
         jLabel1.setOpaque(true);
@@ -263,11 +246,10 @@ public class ControlLoopValve extends javax.swing.JPanel
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        // A rectangle with a frame, whose color is also used for the ticks and
-        // the value marker
-        g2.setColor(elementColors.getControlLoopDisplayBackground());
+        // A rectangle with a black frame
+        g2.setColor(Color.WHITE);
         g2.fillRect(20, 3, 50, 13);
-        g2.setColor(elementColors.getControlLoopDisplayScale());
+        g2.setColor(Color.BLACK);
         g2.drawRect(20, 3, 50, 13);
 
         // Major tick lines

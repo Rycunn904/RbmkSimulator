@@ -26,7 +26,7 @@ import com.hartrusion.mvc.UpdateReceiver;
  *
  * @author Viktor Alexander Hartung
  */
-public class PanelMnemonicLoop extends com.hartrusion.util.JPanelScaleable implements UpdateReceiver {
+public class PanelMnemonicLoop extends javax.swing.JPanel implements UpdateReceiver {
 
     private int loop = 0;
 
@@ -111,7 +111,7 @@ public class PanelMnemonicLoop extends com.hartrusion.util.JPanelScaleable imple
         jLabelCoreOut1 = new javax.swing.JLabel();
         jLabelCoreOut = new javax.swing.JLabel();
         jLabelBlowdown1 = new javax.swing.JLabel();
-        mnemonicBackground = new com.hartrusion.rbmksim.gui.mnemonic.MnemonicLoopBackground();
+        jLabelBackground = new javax.swing.JLabel();
 
         jLabelRegeneratedIn2.setFont(jLabelRegeneratedIn2.getFont().deriveFont(jLabelRegeneratedIn2.getFont().getStyle() & ~java.awt.Font.BOLD, jLabelRegeneratedIn2.getFont().getSize()-3));
         jLabelRegeneratedIn2.setForeground(new java.awt.Color(14, 222, 194));
@@ -409,11 +409,13 @@ public class PanelMnemonicLoop extends com.hartrusion.util.JPanelScaleable imple
         jLabelBlowdown1.setText("Cooldown");
         add(jLabelBlowdown1, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 598, 62, -1));
 
-        add(mnemonicBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hartrusion/rbmksim/gui/mnemonic/MnemonicLoop.png"))); // NOI18N
+        add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelBackground;
     private javax.swing.JLabel jLabelBlowdown1;
     private javax.swing.JLabel jLabelBlowdownFlow;
     private javax.swing.JLabel jLabelBlowdownTemp;
@@ -442,7 +444,6 @@ public class PanelMnemonicLoop extends com.hartrusion.util.JPanelScaleable imple
     private javax.swing.JLabel jLabelRegeneratedIn3;
     private javax.swing.JLabel jLabelSteamDrum;
     private javax.swing.JLabel jLabelSteamFlow;
-    private com.hartrusion.rbmksim.gui.mnemonic.MnemonicLoopBackground mnemonicBackground;
     private com.hartrusion.rbmksim.gui.mnemonic.Pump pump1;
     private com.hartrusion.rbmksim.gui.mnemonic.Pump pump2;
     private com.hartrusion.rbmksim.gui.mnemonic.Pump pump3;
