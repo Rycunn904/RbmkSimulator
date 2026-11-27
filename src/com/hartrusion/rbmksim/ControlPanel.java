@@ -1325,7 +1325,7 @@ public class ControlPanel extends javax.swing.JFrame implements
         // if not, generate a new diagram and make it known.
         InternalFrameDiagram df = new InternalFrameDiagram();
         df.setTitle("Loop 2 PRV");
-        DiagramPresets.loopPressureRelievValves(df.getFigure(), plotData, 1);
+        DiagramPresets.loopPressureRelievValves(df.getFigure(), plotData, 2);
         initializeDiagram(df);
     }//GEN-LAST:event_jMenuItemPRV2ActionPerformed
 
@@ -1451,7 +1451,7 @@ public class ControlPanel extends javax.swing.JFrame implements
         // if not, generate a new diagram and make it known.
         InternalFrameDiagram df = new InternalFrameDiagram();
         df.setTitle("DA 2 Steam");
-        DiagramPresets.daSteam(df.getFigure(), plotData, 1);
+        DiagramPresets.daSteam(df.getFigure(), plotData, 2);
         initializeDiagram(df);
     }//GEN-LAST:event_jMenuItemDA2SteamActionPerformed
 
@@ -1472,13 +1472,13 @@ public class ControlPanel extends javax.swing.JFrame implements
     private void jMenuItemDebugTurbineHPTempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDebugTurbineHPTempActionPerformed
         // Check if there is already an active frame using the desired class
         for (InternalFrameDiagram df : diagrams) {
-            if (df.getTitle().equals("Turbine: HP Temperatures")) {
+            if (df.getTitle().equals("Turbine: HP Temperatures (Extended)")) {
                 return;
             }
         }
         // if not, generate a new diagram and make it known.
         InternalFrameDiagram df = new InternalFrameDiagram();
-        df.setTitle("Turbine: HP Temperatures");
+        df.setTitle("Turbine: HP Temperatures (Extended)");
         DiagramPresets.turbineHPTemperatures(df.getFigure(), plotData, true);
         initializeDiagram(df);
     }//GEN-LAST:event_jMenuItemDebugTurbineHPTempActionPerformed
@@ -1624,13 +1624,13 @@ public class ControlPanel extends javax.swing.JFrame implements
     private void jMenuItemDebugTurbineLPTempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDebugTurbineLPTempActionPerformed
         // Check if there is already an active frame using the desired class
         for (InternalFrameDiagram df : diagrams) {
-            if (df.getTitle().equals("Turbine: LP Temperatures")) {
+            if (df.getTitle().equals("Turbine: LP Temperatures (Extended)")) {
                 return;
             }
         }
         // if not, generate a new diagram and make it known.
         InternalFrameDiagram df = new InternalFrameDiagram();
-        df.setTitle("Turbine: LP Temperatures");
+        df.setTitle("Turbine: LP Temperatures (Extended)");
         DiagramPresets.turbineLPTemperatures(df.getFigure(), plotData, true);
         initializeDiagram(df);
     }//GEN-LAST:event_jMenuItemDebugTurbineLPTempActionPerformed
