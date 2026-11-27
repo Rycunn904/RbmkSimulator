@@ -4,8 +4,8 @@ In accordance with Section 5(a) of the GNU General Public License v3.0 (GPL-3.0)
 
 **Modified By:** CatBo  
 **Date of Modifications:** November 2026  
-**Original Upstream Project:** https://github.com/hartrusion/RbmkSimulator/releases/tag/v0.4.6  
-**License:** GNU General Public License v3.0 (see `LICENSE`)
+**Original Upstream Project:** [hartrusion/RbmkSimulator](https://github.com/hartrusion/RbmkSimulator)
+**License:** GNU General Public License v3.0 (see [`LICENSE`](./LICENSE))
 
 ---
 
@@ -18,8 +18,12 @@ In accordance with Section 5(a) of the GNU General Public License v3.0 (GPL-3.0)
 ### 2. UDP Multiplayer Player Position Relay
 * **Added File:** `src/com/hartrusion/rbmksim/UdpPlayerRelay.java`
 * **Modified Files:** `src/com/hartrusion/rbmksim/RbmkSimulator.java`, `src/com/hartrusion/rbmksim/MainLoop.java`
-* **Description:** Added a lightweight `DatagramSocket` relay thread listening on UDP port `26487` (started automatically in `--headless` mode and via the `StartServer` action). Tracks active player endpoints and broadcasts 3D player position/rotation packets between connected clients, pruning inactive clients after 5 seconds.
+* **Description:** Added a lightweight `DatagramSocket` relay thread listening on UDP port `26486` (started automatically in `--headless` mode and via the `StartServer` action). Tracks active player endpoints and broadcasts 3D player position/rotation packets between connected clients, pruning inactive clients after 5 seconds.
 
-### 3. Build & Packaging Automation
+### 3. Thread-Safe State Loading & Null-Property Guard
+* **Modified File:** `src/com/hartrusion/rbmksim/MainLoop.java`
+* **Description:** Added a synchronization lock (`simLock`) around `run()`, `SaveSimulationState`, and `LoadSimulationState` so `.ic` save files are never serialized or deserialized mid-cycle while the simulation thread is executing. Wrapped the registered `ModelListener` controller in a null-filtering proxy (`safeController`) in `init()` to prevent `NullPointerException` crashes in `ConcurrentHashMap` when deserialized components emit null property updates after switching save files, and guarded `ExceptionPopup.show()` in headless environments.
+
+### 4. Build & Packaging Automation
 * **Added File:** `build.ps1`
 * **Description:** Added a PowerShell build pipeline using `javac`, `jar`, and `jpackage` to compile the Java sources, bundle dependencies and embedded mnemonic display resources into `RbmkSimulator.jar`, generate a portable Windows runtime image (`RbmkServer.exe`), and collect all required GPL-3.0, MIT, and OpenJDK license notices into a `Legal/` directory.
